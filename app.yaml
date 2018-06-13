@@ -1,0 +1,12 @@
+runtime: nodejs8
+
+threadsafe: true
+handlers:
+- url: /(.+(\.js|\.css|\.png|\.map|\.json))$
+  static_files: dist/\1
+  upload: dist/(.+(\.js|\.css|\.png|\.map|\.json))$
+  expiration: 10m
+  secure: always
+
+- url: /.*
+  script: app.js
